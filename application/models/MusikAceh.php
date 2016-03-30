@@ -17,7 +17,16 @@ class MusikAceh extends CI_Model {
     }
 
     public function ambilMusikAceh($page, $size) {
-        return $this->db->get('tb_kuliner-aceh', $size, $page);
+        return $this->db->get('tb_musik_aceh', $size, $page)->result();
+    }
+
+    public function ambilMusikAcehSemua() {
+        return $this->db->get('tb_musik_aceh')->result();
+    }
+
+    public function ambilMusikAcehSatu($idMusikAceh) {
+        $this->db->where('id_musik_aceh', $idMusikAceh);
+        return $this->db->get('tb_musik_aceh')->result();
     }
 
     public function simpanMusikAceh($musikAceh) {
