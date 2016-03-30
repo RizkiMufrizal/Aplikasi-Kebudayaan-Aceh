@@ -17,7 +17,16 @@ class WisataAceh extends CI_Model {
     }
 
     public function ambilWisataAceh($page, $size) {
-        return $this->db->get('tb_kuliner-aceh', $size, $page);
+        return $this->db->get('tb_wisata_aceh', $size, $page)->result();
+    }
+
+    public function ambilWisataAcehSemua() {
+        return $this->db->get('tb_wisata_aceh')->result();
+    }
+
+    public function ambilWisataAcehSatu($idWisataAceh) {
+        $this->db->where('id_wisata_aceh', $idWisataAceh);
+        return $this->db->get('tb_wisata_aceh')->result();
     }
 
     public function simpanWisataAceh($wisataAceh) {
