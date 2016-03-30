@@ -88,3 +88,9 @@ user_guide/*
 
 # sftp configuration file
 sftp-config.json
+/assets/css/bundle.min.css
+/assets/fonts/glyphicons-halflings-regular.ttf
+/assets/fonts/glyphicons-halflings-regular.woff2
+/assets/js/bundle.min.js
+/assets/fonts/glyphicons-halflings-regular.woff
+/uploads/
