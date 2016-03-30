@@ -19,18 +19,41 @@ var gulpConcat = require('gulp-concat');
 gulp.task('minify-js', function() {
   gulp
     .src([
-      './src/index1.js',
-      './src/index2.js'
+      './bower_components/jquery/dist/jquery.min.js',
+      './bower_components/bootstrap/dist/js/bootstrap.min.js',
+      './bower_components/datatables.net/js/jquery.dataTables.min.js',
+      './bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js',
+      './bower_components/angular/angular.min.js',
+      './bower_components/angular-animate/angular-animate.min.js',
+      './bower_components/angular-loading-bar/build/loading-bar.min.js',
+      './bower_components/angular-ui-router/release/angular-ui-router.min.js',
+      './bower_components/oclazyload/dist/ocLazyLoad.min.js'
     ])
-    .pipe(gulpConcat('bundle.js'))
+    .pipe(gulpConcat('bundle.min.js'))
     .pipe(gulpUglify())
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('./assets/js/'));
 });
 
 gulp.task('minify-css', function() {
-  gulp.src('./src/index.css')
+  gulp.src([
+    './bower_components/bootstrap/dist/css/bootstrap.min.css',
+    './bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css',
+    './bower_components/angular-loading-bar/build/loading-bar.min.css'
+  ])
+    .pipe(gulpConcat('bundle.min.css'))
     .pipe(gulpMinifyCss({
       compatibility: 'ie8'
     }))
-    .pipe(gulp.dest('./dist/'));
+    .pipe(gulp.dest('./assets/css/'));
 });
+
+gulp.task('fonts', function() {
+  gulp.src([
+    './bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff',
+    './bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2',
+    './bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf'
+  ])
+    .pipe(gulp.dest('./assets/fonts/'));
+});
+
+gulp.task('default', ['minify-css', 'minify-js', 'fonts']);
