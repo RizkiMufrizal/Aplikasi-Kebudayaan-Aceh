@@ -17,7 +17,16 @@ class KulinerAceh extends CI_Model {
     }
 
     public function ambilKulinerAceh($page, $size) {
-        return $this->db->get('tb_kuliner_aceh', $size, $page);
+        return $this->db->get('tb_kuliner_aceh', $size, $page)->result();
+    }
+
+    public function ambilKulinerAcehSemua() {
+        return $this->db->get('tb_kuliner_aceh')->result();
+    }
+
+    public function ambilKulinerAcehSatu($idKulinerAceh) {
+        $this->db->where('id_kuliner_aceh', $idKulinerAceh);
+        return $this->db->get('tb_kuliner_aceh')->result();
     }
 
     public function simpanKulinerAceh($kulinerAceh) {
