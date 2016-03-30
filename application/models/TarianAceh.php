@@ -17,7 +17,16 @@ class TarianAceh extends CI_Model {
     }
 
     public function ambilTarianAceh($page, $size) {
-        return $this->db->get('tb_kuliner-aceh', $size, $page);
+        return $this->db->get('tb_tarian_aceh', $size, $page)->result();
+    }
+
+    public function ambilTarianAcehSemua() {
+        return $this->db->get('tb_tarian_aceh')->result();
+    }
+
+    public function ambilTarianAcehSatu($idTarianAceh) {
+        $this->db->where('id_tarian_aceh', $idTarianAceh);
+        return $this->db->get('tb_tarian_aceh')->result();
     }
 
     public function simpanTarianAceh($tarianAceh) {
