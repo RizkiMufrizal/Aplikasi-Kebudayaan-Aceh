@@ -67,5 +67,17 @@ $route['admin/kuliner/ubah']['POST'] = 'admin/KulinerAcehController/ubahKuliner'
 $route['admin/kuliner/hapus/(:any)']['GET'] = 'admin/KulinerAcehController/hapusKuliner/$1';
 //end kuliner
 
+//wisata
+$route['admin/wisata']['GET'] = 'admin/WisataAcehController/index';
+
+$route['admin/wisata/tambah']['GET'] = 'admin/WisataAcehController/tambahWisata';
+$route['admin/wisata/simpan']['POST'] = 'admin/WisataAcehController/simpanWisata';
+
+$route['admin/wisata/ubah/(:any)']['GET'] = 'admin/WisataAcehController/editWisataAceh/$1';
+$route['admin/wisata/ubah']['POST'] = 'admin/WisataAcehController/ubahWisata';
+
+$route['admin/wisata/hapus/(:any)']['GET'] = 'admin/WisataAcehController/hapusWisata/$1';
+//end wisata
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
