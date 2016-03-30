@@ -65,6 +65,9 @@
                         <li>
                             <a href="<?php echo base_url(); ?>index.php/admin/kuliner"><i class="glyphicon glyphicon-dashboard"></i> Kuliner Aceh</a>
                         </li>
+                        <li>
+                            <a href="<?php echo base_url(); ?>index.php/admin/wisata"><i class="glyphicon glyphicon-dashboard"></i> Wisata Aceh</a>
+                        </li>
                     </ul>
                 </div>
             </nav>
