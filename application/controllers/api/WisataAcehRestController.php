@@ -27,7 +27,7 @@ class WisataAcehRestController extends REST_Controller {
         $size = $this->query('size');
 
         $response = array(
-            'data_wisata' => $this->WisataAceh->ambilWisataAceh(($page - 1) * $size, $size)->result(),
+            'data_wisata' => $this->WisataAceh->ambilWisataAceh(($page - 1) * $size, $size),
             'jumlah_halaman' => ceil($this->WisataAceh->ambilJumlahWisataAceh() / $size)
         );
 

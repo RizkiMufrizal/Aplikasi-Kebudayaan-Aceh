@@ -27,7 +27,7 @@ class MusikAcehRestController extends REST_Controller {
         $size = $this->query('size');
 
         $response = array(
-            'data_musik' => $this->MusikAceh->ambilMusikAceh(($page - 1) * $size, $size)->result(),
+            'data_musik' => $this->MusikAceh->ambilMusikAceh(($page - 1) * $size, $size),
             'jumlah_halaman' => ceil($this->MusikAceh->ambilJumlahMusikAceh() / $size)
         );
 

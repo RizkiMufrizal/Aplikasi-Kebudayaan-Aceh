@@ -27,7 +27,7 @@ class KulinerAcehRestController extends REST_Controller {
         $size = $this->query('size');
 
         $response = array(
-            'data_kuliner' => $this->KulinerAceh->ambilKulinerAceh(($page - 1) * $size, $size)->result(),
+            'data_kuliner' => $this->KulinerAceh->ambilKulinerAceh(($page - 1) * $size, $size),
             'jumlah_halaman' => ceil($this->KulinerAceh->ambilJumlahKulinerAceh() / $size)
         );
 

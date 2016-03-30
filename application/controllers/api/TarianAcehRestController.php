@@ -27,7 +27,7 @@ class TarianAcehRestController extends REST_Controller {
         $size = $this->query('size');
 
         $response = array(
-            'data_tarian' => $this->TarianAceh->ambilTarianAceh(($page - 1) * $size, $size)->result(),
+            'data_tarian' => $this->TarianAceh->ambilTarianAceh(($page - 1) * $size, $size),
             'jumlah_halaman' => ceil($this->TarianAceh->ambilJumlahTarianAceh() / $size)
         );
 
