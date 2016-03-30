@@ -25,7 +25,7 @@ class KulinerAcehController extends CI_Controller {
     }
 
     public function tambahKuliner() {
-        $this->load->view('admin/TambahKuliner', array('error' => ' '));
+        $this->load->view('admin/KulinerTambahView', array('error' => ' '));
     }
 
     public function simpanKuliner() {
@@ -38,7 +38,7 @@ class KulinerAcehController extends CI_Controller {
 
         if (!$this->upload->do_upload('gambar')) {
             $error = array('error' => $this->upload->display_errors());
-            $this->load->view('admin/TambahKuliner', $error);
+            $this->load->view('admin/KulinerTambahView', $error);
         } else {
             $kuliner = array(
                 'id_kuliner_aceh' => $this->uuid->v4(),
@@ -54,7 +54,7 @@ class KulinerAcehController extends CI_Controller {
 
     public function editKulinerAceh($idKulinerAceh) {
         $data['kuliner'] = $this->KulinerAceh->ambilKulinerAcehSatu($idKulinerAceh);
-        $this->load->view('admin/UbahKuliner', $data);
+        $this->load->view('admin/KulinerUbahView', $data);
     }
 
     public function ubahKuliner() {
