@@ -20,58 +20,94 @@ class WisataAcehController extends CI_Controller {
     }
 
     public function index() {
-        $data['wisata'] = $this->WisataAceh->ambilWisataAcehSemua();
-        $this->load->view('admin/WisataView', $data);
+        $session = $this->session->userdata('isLogin');
+
+        if ($session == FALSE) {
+            redirect('admin/login');
+        } else {
+            $data['wisata'] = $this->WisataAceh->ambilWisataAcehSemua();
+            $this->load->view('admin/WisataView', $data);
+        }
     }
 
     public function tambahWisata() {
-        $this->load->view('admin/WisataTambahView', array('error' => ' '));
+        $session = $this->session->userdata('isLogin');
+
+        if ($session == FALSE) {
+            redirect('admin/login');
+        } else {
+            $this->load->view('admin/WisataTambahView', array('error' => ' '));
+        }
     }
 
     public function simpanWisata() {
-        $namaFile = $this->uuid->v4();
-        $config['upload_path'] = $this->gambarPath;
-        $config['allowed_types'] = 'gif|jpg|png';
-        $config['max_size'] = 2000;
-        $config['file_name'] = $namaFile;
-        $this->load->library('upload', $config);
+        $session = $this->session->userdata('isLogin');
 
-        if (!$this->upload->do_upload('gambar')) {
-            $error = array('error' => $this->upload->display_errors());
-            $this->load->view('admin/WisataTambahView', $error);
+        if ($session == FALSE) {
+            redirect('admin/login');
         } else {
-            $wisata = array(
-                'id_wisata_aceh' => $this->uuid->v4(),
-                'judul_wisata' => $this->input->post('judulWisata'),
-                'gambar_wisata' => $this->upload->file_name,
-                'deskripsi_wisata' => $this->input->post('deskripsiWisata')
-            );
+            $namaFile = $this->uuid->v4();
+            $config['upload_path'] = $this->gambarPath;
+            $config['allowed_types'] = 'gif|jpg|png';
+            $config['max_size'] = 2000;
+            $config['file_name'] = $namaFile;
+            $this->load->library('upload', $config);
 
-            $this->WisataAceh->simpanWisataAceh($wisata);
-            redirect('admin/wisata');
+            if (!$this->upload->do_upload('gambar')) {
+                $error = array('error' => $this->upload->display_errors());
+                $this->load->view('admin/WisataTambahView', $error);
+            } else {
+                $wisata = array(
+                    'id_wisata_aceh' => $this->uuid->v4(),
+                    'judul_wisata' => $this->input->post('judulWisata'),
+                    'gambar_wisata' => $this->upload->file_name,
+                    'deskripsi_wisata' => $this->input->post('deskripsiWisata')
+                );
+
+                $this->WisataAceh->simpanWisataAceh($wisata);
+                redirect('admin/wisata');
+            }
         }
     }
 
     public function editWisataAceh($idWisataAceh) {
-        $data['wisata'] = $this->WisataAceh->ambilWisataAcehSatu($idWisataAceh);
-        $this->load->view('admin/WisataUbahView', $data);
+        $session = $this->session->userdata('isLogin');
+
+        if ($session == FALSE) {
+            redirect('admin/login');
+        } else {
+            $data['wisata'] = $this->WisataAceh->ambilWisataAcehSatu($idWisataAceh);
+            $this->load->view('admin/WisataUbahView', $data);
+        }
     }
 
     public function ubahWisata() {
-        $idWisata = $this->input->post('idWisata');
-        $wisata = array(
-            'judul_wisata' => $this->input->post('judulWisata'),
-            'gambar_wisata' => $this->input->post('gambarWisata'),
-            'deskripsi_wisata' => $this->input->post('deskripsiWisata')
-        );
+        $session = $this->session->userdata('isLogin');
 
-        $this->WisataAceh->ubahWisataAceh($wisata, $idWisata);
-        redirect('admin/wisata');
+        if ($session == FALSE) {
+            redirect('admin/login');
+        } else {
+            $idWisata = $this->input->post('idWisata');
+            $wisata = array(
+                'judul_wisata' => $this->input->post('judulWisata'),
+                'gambar_wisata' => $this->input->post('gambarWisata'),
+                'deskripsi_wisata' => $this->input->post('deskripsiWisata')
+            );
+
+            $this->WisataAceh->ubahWisataAceh($wisata, $idWisata);
+            redirect('admin/wisata');
+        }
     }
 
     public function hapusWisata($idWisataAceh) {
-        $this->WisataAceh->hapusWisataAceh($idWisataAceh);
-        redirect('admin/wisata');
+        $session = $this->session->userdata('isLogin');
+
+        if ($session == FALSE) {
+            redirect('admin/login');
+        } else {
+            $this->WisataAceh->hapusWisataAceh($idWisataAceh);
+            redirect('admin/wisata');
+        }
     }
 
 }

@@ -20,58 +20,94 @@ class TarianAcehController extends CI_Controller {
     }
 
     public function index() {
-        $data['tarian'] = $this->TarianAceh->ambilTarianAcehSemua();
-        $this->load->view('admin/TarianView', $data);
+        $session = $this->session->userdata('isLogin');
+
+        if ($session == FALSE) {
+            redirect('admin/login');
+        } else {
+            $data['tarian'] = $this->TarianAceh->ambilTarianAcehSemua();
+            $this->load->view('admin/TarianView', $data);
+        }
     }
 
     public function tambahTarian() {
-        $this->load->view('admin/TarianTambahView', array('error' => ' '));
+        $session = $this->session->userdata('isLogin');
+
+        if ($session == FALSE) {
+            redirect('admin/login');
+        } else {
+            $this->load->view('admin/TarianTambahView', array('error' => ' '));
+        }
     }
 
     public function simpanTarian() {
-        $namaFile = $this->uuid->v4();
-        $config['upload_path'] = $this->videoPath;
-        $config['allowed_types'] = 'gif|jpg|png|mp4';
-        $config['max_size'] = 102400;
-        $config['file_name'] = $namaFile;
-        $this->load->library('upload', $config);
+        $session = $this->session->userdata('isLogin');
 
-        if (!$this->upload->do_upload('video')) {
-            $error = array('error' => $this->upload->display_errors());
-            $this->load->view('admin/TarianTambahView', $error);
+        if ($session == FALSE) {
+            redirect('admin/login');
         } else {
-            $tarian = array(
-                'id_tarian_aceh' => $this->uuid->v4(),
-                'judul_tarian' => $this->input->post('judulTarian'),
-                'video_tarian' => $this->upload->file_name,
-                'deskripsi_tarian' => $this->input->post('deskripsiTarian')
-            );
+            $namaFile = $this->uuid->v4();
+            $config['upload_path'] = $this->videoPath;
+            $config['allowed_types'] = 'gif|jpg|png|mp4';
+            $config['max_size'] = 102400;
+            $config['file_name'] = $namaFile;
+            $this->load->library('upload', $config);
 
-            $this->TarianAceh->simpanTarianAceh($tarian);
-            redirect('admin/tarian');
+            if (!$this->upload->do_upload('video')) {
+                $error = array('error' => $this->upload->display_errors());
+                $this->load->view('admin/TarianTambahView', $error);
+            } else {
+                $tarian = array(
+                    'id_tarian_aceh' => $this->uuid->v4(),
+                    'judul_tarian' => $this->input->post('judulTarian'),
+                    'video_tarian' => $this->upload->file_name,
+                    'deskripsi_tarian' => $this->input->post('deskripsiTarian')
+                );
+
+                $this->TarianAceh->simpanTarianAceh($tarian);
+                redirect('admin/tarian');
+            }
         }
     }
 
     public function editTarianAceh($idTarianAceh) {
-        $data['tarian'] = $this->TarianAceh->ambilTarianAcehSatu($idTarianAceh);
-        $this->load->view('admin/TarianUbahView', $data);
+        $session = $this->session->userdata('isLogin');
+
+        if ($session == FALSE) {
+            redirect('admin/login');
+        } else {
+            $data['tarian'] = $this->TarianAceh->ambilTarianAcehSatu($idTarianAceh);
+            $this->load->view('admin/TarianUbahView', $data);
+        }
     }
 
     public function ubahTarian() {
-        $idTarian = $this->input->post('idTarian');
-        $tarian = array(
-            'judul_tarian' => $this->input->post('judulTarian'),
-            'video_tarian' => $this->input->post('videoTarian'),
-            'deskripsi_tarian' => $this->input->post('deskripsiTarian')
-        );
+        $session = $this->session->userdata('isLogin');
 
-        $this->TarianAceh->ubahTarianAceh($tarian, $idTarian);
-        redirect('admin/tarian');
+        if ($session == FALSE) {
+            redirect('admin/login');
+        } else {
+            $idTarian = $this->input->post('idTarian');
+            $tarian = array(
+                'judul_tarian' => $this->input->post('judulTarian'),
+                'video_tarian' => $this->input->post('videoTarian'),
+                'deskripsi_tarian' => $this->input->post('deskripsiTarian')
+            );
+
+            $this->TarianAceh->ubahTarianAceh($tarian, $idTarian);
+            redirect('admin/tarian');
+        }
     }
 
     public function hapusTarian($idTarianAceh) {
-        $this->TarianAceh->hapusTarianAceh($idTarianAceh);
-        redirect('admin/tarian');
+        $session = $this->session->userdata('isLogin');
+
+        if ($session == FALSE) {
+            redirect('admin/login');
+        } else {
+            $this->TarianAceh->hapusTarianAceh($idTarianAceh);
+            redirect('admin/tarian');
+        }
     }
 
 }

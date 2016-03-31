@@ -20,58 +20,94 @@ class KulinerAcehController extends CI_Controller {
     }
 
     public function index() {
-        $data['kuliner'] = $this->KulinerAceh->ambilKulinerAcehSemua();
-        $this->load->view('admin/KulinerView', $data);
+        $session = $this->session->userdata('isLogin');
+
+        if ($session == FALSE) {
+            redirect('admin/login');
+        } else {
+            $data['kuliner'] = $this->KulinerAceh->ambilKulinerAcehSemua();
+            $this->load->view('admin/KulinerView', $data);
+        }
     }
 
     public function tambahKuliner() {
-        $this->load->view('admin/KulinerTambahView', array('error' => ' '));
+        $session = $this->session->userdata('isLogin');
+
+        if ($session == FALSE) {
+            redirect('admin/login');
+        } else {
+            $this->load->view('admin/KulinerTambahView', array('error' => ' '));
+        }
     }
 
     public function simpanKuliner() {
-        $namaFile = $this->uuid->v4();
-        $config['upload_path'] = $this->gambarPath;
-        $config['allowed_types'] = 'gif|jpg|png';
-        $config['max_size'] = 2000;
-        $config['file_name'] = $namaFile;
-        $this->load->library('upload', $config);
+        $session = $this->session->userdata('isLogin');
 
-        if (!$this->upload->do_upload('gambar')) {
-            $error = array('error' => $this->upload->display_errors());
-            $this->load->view('admin/KulinerTambahView', $error);
+        if ($session == FALSE) {
+            redirect('admin/login');
         } else {
-            $kuliner = array(
-                'id_kuliner_aceh' => $this->uuid->v4(),
-                'judul_kuliner' => $this->input->post('judulKuliner'),
-                'gambar_kuliner' => $this->upload->file_name,
-                'deskripsi_kuliner' => $this->input->post('deskripsiKuliner')
-            );
+            $namaFile = $this->uuid->v4();
+            $config['upload_path'] = $this->gambarPath;
+            $config['allowed_types'] = 'gif|jpg|png';
+            $config['max_size'] = 2000;
+            $config['file_name'] = $namaFile;
+            $this->load->library('upload', $config);
 
-            $this->KulinerAceh->simpanKulinerAceh($kuliner);
-            redirect('admin/kuliner');
+            if (!$this->upload->do_upload('gambar')) {
+                $error = array('error' => $this->upload->display_errors());
+                $this->load->view('admin/KulinerTambahView', $error);
+            } else {
+                $kuliner = array(
+                    'id_kuliner_aceh' => $this->uuid->v4(),
+                    'judul_kuliner' => $this->input->post('judulKuliner'),
+                    'gambar_kuliner' => $this->upload->file_name,
+                    'deskripsi_kuliner' => $this->input->post('deskripsiKuliner')
+                );
+
+                $this->KulinerAceh->simpanKulinerAceh($kuliner);
+                redirect('admin/kuliner');
+            }
         }
     }
 
     public function editKulinerAceh($idKulinerAceh) {
-        $data['kuliner'] = $this->KulinerAceh->ambilKulinerAcehSatu($idKulinerAceh);
-        $this->load->view('admin/KulinerUbahView', $data);
+        $session = $this->session->userdata('isLogin');
+
+        if ($session == FALSE) {
+            redirect('admin/login');
+        } else {
+            $data['kuliner'] = $this->KulinerAceh->ambilKulinerAcehSatu($idKulinerAceh);
+            $this->load->view('admin/KulinerUbahView', $data);
+        }
     }
 
     public function ubahKuliner() {
-        $idKuliner = $this->input->post('idKuliner');
-        $kuliner = array(
-            'judul_kuliner' => $this->input->post('judulKuliner'),
-            'gambar_kuliner' => $this->input->post('gambarKuliner'),
-            'deskripsi_kuliner' => $this->input->post('deskripsiKuliner')
-        );
+        $session = $this->session->userdata('isLogin');
 
-        $this->KulinerAceh->ubahKulinerAceh($kuliner, $idKuliner);
-        redirect('admin/kuliner');
+        if ($session == FALSE) {
+            redirect('admin/login');
+        } else {
+            $idKuliner = $this->input->post('idKuliner');
+            $kuliner = array(
+                'judul_kuliner' => $this->input->post('judulKuliner'),
+                'gambar_kuliner' => $this->input->post('gambarKuliner'),
+                'deskripsi_kuliner' => $this->input->post('deskripsiKuliner')
+            );
+
+            $this->KulinerAceh->ubahKulinerAceh($kuliner, $idKuliner);
+            redirect('admin/kuliner');
+        }
     }
 
     public function hapusKuliner($idKulinerAceh) {
-        $this->KulinerAceh->hapusKulinerAceh($idKulinerAceh);
-        redirect('admin/kuliner');
+        $session = $this->session->userdata('isLogin');
+
+        if ($session == FALSE) {
+            redirect('admin/login');
+        } else {
+            $this->KulinerAceh->hapusKulinerAceh($idKulinerAceh);
+            redirect('admin/kuliner');
+        }
     }
 
 }
