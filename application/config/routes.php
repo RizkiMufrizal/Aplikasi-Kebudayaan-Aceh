@@ -103,5 +103,10 @@ $route['admin/tarian/ubah']['POST'] = 'admin/TarianAcehController/ubahTarian';
 $route['admin/tarian/hapus/(:any)']['GET'] = 'admin/TarianAcehController/hapusTarian/$1';
 //end tarian
 
+//login view
+$route['admin/login']['GET'] = 'admin/UserController/halamanUser';
+$route['admin/login']['POST'] = 'admin/UserController/prosesLogin';
+//end login view
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
