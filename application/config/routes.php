@@ -79,5 +79,17 @@ $route['admin/wisata/ubah']['POST'] = 'admin/WisataAcehController/ubahWisata';
 $route['admin/wisata/hapus/(:any)']['GET'] = 'admin/WisataAcehController/hapusWisata/$1';
 //end wisata
 
+//musik
+$route['admin/musik']['GET'] = 'admin/MusikAcehController/index';
+
+$route['admin/musik/tambah']['GET'] = 'admin/MusikAcehController/tambahMusik';
+$route['admin/musik/simpan']['POST'] = 'admin/MusikAcehController/simpanMusik';
+
+$route['admin/musik/ubah/(:any)']['GET'] = 'admin/MusikAcehController/editMusikAceh/$1';
+$route['admin/musik/ubah']['POST'] = 'admin/MusikAcehController/ubahMusik';
+
+$route['admin/musik/hapus/(:any)']['GET'] = 'admin/MusikAcehController/hapusMusik/$1';
+//end musik
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
