@@ -91,5 +91,17 @@ $route['admin/musik/ubah']['POST'] = 'admin/MusikAcehController/ubahMusik';
 $route['admin/musik/hapus/(:any)']['GET'] = 'admin/MusikAcehController/hapusMusik/$1';
 //end musik
 
+//tarian
+$route['admin/tarian']['GET'] = 'admin/TarianAcehController/index';
+
+$route['admin/tarian/tambah']['GET'] = 'admin/TarianAcehController/tambahTarian';
+$route['admin/tarian/simpan']['POST'] = 'admin/TarianAcehController/simpanTarian';
+
+$route['admin/tarian/ubah/(:any)']['GET'] = 'admin/TarianAcehController/editTarianAceh/$1';
+$route['admin/tarian/ubah']['POST'] = 'admin/TarianAcehController/ubahTarian';
+
+$route['admin/tarian/hapus/(:any)']['GET'] = 'admin/TarianAcehController/hapusTarian/$1';
+//end tarian
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
