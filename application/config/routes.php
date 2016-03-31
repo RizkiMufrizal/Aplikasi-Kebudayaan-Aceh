@@ -106,6 +106,7 @@ $route['admin/tarian/hapus/(:any)']['GET'] = 'admin/TarianAcehController/hapusTa
 //login view
 $route['admin/login']['GET'] = 'admin/UserController/halamanUser';
 $route['admin/login']['POST'] = 'admin/UserController/prosesLogin';
+$route['admin/logout']['GET'] = 'admin/UserController/prosesLogout';
 //end login view
 
 $route['404_override'] = '';
