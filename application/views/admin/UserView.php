@@ -25,8 +25,7 @@
             <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
 
-        <link href="<?php echo base_url(); ?>assets/css/bundle.min.css" rel="stylesheet" type="text/css" />
-        <link href="<?php echo base_url(); ?>assets/css/signin.css" rel="stylesheet" type="text/css" />
+        <?php $this->load->view('admin/layout/CssLayoutUser') ?>
 
     </head>
     <body>
@@ -58,6 +57,6 @@
 
         </div>
 
-        <script src="<?php echo base_url(); ?>assets/js/bundle.min.js" type="text/javascript"></script>
+        <?php $this->load->view('admin/layout/JsLayout') ?>
     </body>
 </html>
