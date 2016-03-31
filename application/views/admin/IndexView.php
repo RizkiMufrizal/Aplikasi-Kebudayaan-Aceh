@@ -68,6 +68,9 @@
                         <li>
                             <a href="<?php echo base_url(); ?>index.php/admin/wisata"><i class="glyphicon glyphicon-dashboard"></i> Wisata Aceh</a>
                         </li>
+                        <li>
+                            <a href="<?php echo base_url(); ?>index.php/admin/musik"><i class="glyphicon glyphicon-dashboard"></i> Musik Aceh</a>
+                        </li>
                     </ul>
                 </div>
             </nav>
