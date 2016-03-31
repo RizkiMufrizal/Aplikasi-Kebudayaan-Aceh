@@ -77,6 +77,7 @@
                                     <label>Keterangan Kuliner Aceh</label>
                                     <textarea name="deskripsiKuliner" class="form-control" placeholder="Masukkan Keterangan Kuliner Aceh"></textarea>
                                 </div>
+                                <input type="hidden" name="<?= $name;?>" value="<?= $hash;?>" />
                                 <button type="submit" class="btn btn-primary">Simpan</button>
                                 <a href="<?php echo base_url(); ?>index.php/admin/kuliner">
                                     <button type="button" class="btn btn-warning">Batal</button>

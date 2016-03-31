@@ -76,6 +76,7 @@
                                     <label>Keterangan Tarian Aceh</label>
                                     <textarea name="deskripsiTarian" class="form-control" placeholder="Masukkan Keterangan Tarian Aceh"></textarea>
                                 </div>
+                                <input type="hidden" name="<?= $name; ?>" value="<?= $hash; ?>" />
                                 <button type="submit" class="btn btn-primary">Simpan</button>
                                 <a href="<?php echo base_url(); ?>index.php/admin/tarian">
                                     <button type="button" class="btn btn-warning">Batal</button>

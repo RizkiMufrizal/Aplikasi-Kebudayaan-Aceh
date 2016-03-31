@@ -83,6 +83,7 @@
                                         <label>Deskripsi Musik Aceh</label>
                                         <textarea name="deskripsiMusik" class="form-control"><?php echo $k->deskripsi_musik; ?></textarea>
                                     </div>
+                                    <input type="hidden" name="<?= $name; ?>" value="<?= $hash; ?>" />
                                     <button type="submit" class="btn btn-success">Simpan</button>
                                     <a href="<?php echo base_url(); ?>index.php/admin/musik">
                                         <button type="button" class="btn btn-warning">Batal</button>

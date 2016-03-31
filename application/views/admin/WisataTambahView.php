@@ -76,6 +76,7 @@
                                     <label>Keterangan Wisata Aceh</label>
                                     <textarea name="deskripsiWisata" class="form-control" placeholder="Masukkan Keterangan Wisata Aceh"></textarea>
                                 </div>
+                                <input type="hidden" name="<?= $name; ?>" value="<?= $hash; ?>" />
                                 <button type="submit" class="btn btn-primary">Simpan</button>
                                 <a href="<?php echo base_url(); ?>index.php/admin/wisata">
                                     <button type="button" class="btn btn-warning">Batal</button>

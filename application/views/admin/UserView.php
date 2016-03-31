@@ -47,6 +47,7 @@
                 <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
                 <label for="inputPassword" class="sr-only">Password</label>
                 <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <input type="hidden" name="<?= $name;?>" value="<?= $hash;?>" />
                 <div class="checkbox">
                     <label>
                         <input type="checkbox" value="remember-me"> Remember me
