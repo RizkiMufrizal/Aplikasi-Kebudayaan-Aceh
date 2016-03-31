@@ -26,7 +26,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $this->session->userdata('username'); ?> <b class="caret"></b></a>
             <ul class="dropdown-menu">
                 <li>
-                    <a href="#"><i class="glyphicon glyphicon-user"></i> Profile</a>
+                    <a href="<?php echo base_url(); ?>index.php/admin/logout"><i class="glyphicon glyphicon-log-out"></i> Logout</a>
                 </li>
             </ul>
         </li>
