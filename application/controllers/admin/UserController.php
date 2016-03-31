@@ -44,4 +44,9 @@ class UserController extends CI_Controller {
         }
     }
 
+    public function prosesLogout() {
+        $this->session->unset_userdata(array('isLogin', 'username'));
+        redirect('admin/login');
+    }
+
 }
