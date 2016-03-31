@@ -36,7 +36,11 @@ class TarianAcehController extends CI_Controller {
         if ($session == FALSE) {
             redirect('admin/login');
         } else {
-            $this->load->view('admin/TarianTambahView', array('error' => ' '));
+            $this->load->view('admin/TarianTambahView', array(
+                'error' => ' ',
+                'name' => $this->security->get_csrf_token_name(),
+                'hash' => $this->security->get_csrf_hash()
+            ));
         }
     }
 
@@ -76,7 +80,12 @@ class TarianAcehController extends CI_Controller {
         if ($session == FALSE) {
             redirect('admin/login');
         } else {
-            $data['tarian'] = $this->TarianAceh->ambilTarianAcehSatu($idTarianAceh);
+            $data = array(
+                'tarian' => $this->TarianAceh->ambilTarianAcehSatu($idTarianAceh),
+                'name' => $this->security->get_csrf_token_name(),
+                'hash' => $this->security->get_csrf_hash()
+            );
+
             $this->load->view('admin/TarianUbahView', $data);
         }
     }

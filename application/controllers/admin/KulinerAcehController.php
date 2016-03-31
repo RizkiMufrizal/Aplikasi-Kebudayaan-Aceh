@@ -36,7 +36,11 @@ class KulinerAcehController extends CI_Controller {
         if ($session == FALSE) {
             redirect('admin/login');
         } else {
-            $this->load->view('admin/KulinerTambahView', array('error' => ' '));
+            $this->load->view('admin/KulinerTambahView', array(
+                'error' => ' ',
+                'name' => $this->security->get_csrf_token_name(),
+                'hash' => $this->security->get_csrf_hash()
+            ));
         }
     }
 
@@ -76,7 +80,11 @@ class KulinerAcehController extends CI_Controller {
         if ($session == FALSE) {
             redirect('admin/login');
         } else {
-            $data['kuliner'] = $this->KulinerAceh->ambilKulinerAcehSatu($idKulinerAceh);
+            $data = array(
+                'kuliner' => $this->KulinerAceh->ambilKulinerAcehSatu($idKulinerAceh),
+                'name' => $this->security->get_csrf_token_name(),
+                'hash' => $this->security->get_csrf_hash()
+            );
             $this->load->view('admin/KulinerUbahView', $data);
         }
     }

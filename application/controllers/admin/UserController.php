@@ -18,7 +18,11 @@ class UserController extends CI_Controller {
     }
 
     public function halamanUser() {
-        $this->load->view('admin/UserView', array('error' => NULL));
+        $this->load->view('admin/UserView', array(
+            'error' => NULL,
+            'name' => $this->security->get_csrf_token_name(),
+            'hash' => $this->security->get_csrf_hash()
+        ));
     }
 
     public function prosesLogin() {

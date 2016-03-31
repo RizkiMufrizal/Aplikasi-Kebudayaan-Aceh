@@ -36,7 +36,11 @@ class MusikAcehController extends CI_Controller {
         if ($session == FALSE) {
             redirect('admin/login');
         } else {
-            $this->load->view('admin/MusikTambahView', array('error' => ' '));
+            $this->load->view('admin/MusikTambahView', array(
+                'error' => ' ',
+                'name' => $this->security->get_csrf_token_name(),
+                'hash' => $this->security->get_csrf_hash()
+            ));
         }
     }
 
@@ -76,7 +80,12 @@ class MusikAcehController extends CI_Controller {
         if ($session == FALSE) {
             redirect('admin/login');
         } else {
-            $data['musik'] = $this->MusikAceh->ambilMusikAcehSatu($idMusikAceh);
+            $data = array(
+                'musik' => $this->MusikAceh->ambilMusikAcehSatu($idMusikAceh),
+                'name' => $this->security->get_csrf_token_name(),
+                'hash' => $this->security->get_csrf_hash()
+            );
+
             $this->load->view('admin/MusikUbahView', $data);
         }
     }

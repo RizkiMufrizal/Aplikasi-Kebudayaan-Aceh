@@ -36,7 +36,11 @@ class WisataAcehController extends CI_Controller {
         if ($session == FALSE) {
             redirect('admin/login');
         } else {
-            $this->load->view('admin/WisataTambahView', array('error' => ' '));
+            $this->load->view('admin/WisataTambahView', array(
+                'error' => ' ',
+                'name' => $this->security->get_csrf_token_name(),
+                'hash' => $this->security->get_csrf_hash()
+            ));
         }
     }
 
@@ -76,7 +80,12 @@ class WisataAcehController extends CI_Controller {
         if ($session == FALSE) {
             redirect('admin/login');
         } else {
-            $data['wisata'] = $this->WisataAceh->ambilWisataAcehSatu($idWisataAceh);
+            $data = array(
+                'wisata' => $this->WisataAceh->ambilWisataAcehSatu($idWisataAceh),
+                'name' => $this->security->get_csrf_token_name(),
+                'hash' => $this->security->get_csrf_hash()
+            );
+
             $this->load->view('admin/WisataUbahView', $data);
         }
     }
