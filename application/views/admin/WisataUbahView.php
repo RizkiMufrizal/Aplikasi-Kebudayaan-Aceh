@@ -71,6 +71,9 @@
                         <li>
                             <a href="<?php echo base_url(); ?>index.php/admin/musik"><i class="glyphicon glyphicon-dashboard"></i> Musik Aceh</a>
                         </li>
+                        <li>
+                            <a href="<?php echo base_url(); ?>index.php/admin/tarian"><i class="glyphicon glyphicon-dashboard"></i> Tarian Aceh</a>
+                        </li>
                     </ul>
                 </div>
             </nav>
