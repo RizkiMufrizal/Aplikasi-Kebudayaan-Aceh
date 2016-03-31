@@ -9,10 +9,10 @@
  * 
  */
 
-CREATE DATABASE kuliner_aceh;
+CREATE DATABASE kebudayaan_aceh;
 
 USE
-  kuliner_aceh;
+  kebudayaan_aceh;
 
 CREATE TABLE tb_kuliner_aceh(
   id_kuliner_aceh VARCHAR(150) NOT NULL PRIMARY KEY,
@@ -24,7 +24,7 @@ CREATE TABLE tb_kuliner_aceh(
 CREATE TABLE tb_musik_aceh(
   id_musik_aceh VARCHAR(150) NOT NULL PRIMARY KEY,
   judul_musik VARCHAR(50) NOT NULL,
-  musik_musik VARCHAR(150) NOT NULL,
+  musik_aceh VARCHAR(150) NOT NULL,
   deskripsi_musik TEXT NOT NULL
 ) ENGINE = InnoDB;
 
