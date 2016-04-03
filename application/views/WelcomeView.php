@@ -89,7 +89,7 @@
 
         <!--  Scripts-->
         <script src="<?php echo base_url(); ?>assets/js/bundle-user.min.js"></script>
-        <script src="<?php echo base_url(); ?>assets/app/scripts/App.js"></script>
+        <script src="<?php echo base_url(); ?>assets/app/scripts/app.js"></script>
 
     </body>
 </html>
