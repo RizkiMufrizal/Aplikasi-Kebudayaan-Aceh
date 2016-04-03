@@ -1,0 +1,48 @@
+<!--
+
+ @Author Rizki Mufrizal <mufrizalrizki@gmail.com>
+ @Since Apr 3, 2016
+ @Time 2:25:28 PM
+ @Encoding UTF-8
+ @Project Aplikasi-Kebudayaan-Aceh
+ @Package Expression package is undefined on line 9, column 13 in Templates/Other/html.html.
+
+-->
+<div class="container">
+    <div class="section">
+        <div class="row">
+            <div class="col s12">
+                <div ng-repeat="k in wisata.dataWisata">
+                    <div class="card z-depth-2">
+                        <div class="card-image">
+                            <img class="responsive-img" ng-src="uploads/gambar/{{k.gambar_wisata}}">
+                            <span class="card-title">{{k.judul_wisata}}</span>
+                        </div>
+                        <div class="card-content">
+                            <p>{{k.deskripsi_wisata}}</p>
+                        </div>
+                    </div>
+                </div>
+                <ul class="pagination">
+                    <li ng-click="wisata.previousPage()" class="waves-effect">
+                        <a>
+                            <i class="material-icons">chevron_left</i>
+                        </a>
+                    </li>
+                    <li class="waves-effect">
+                        <a>
+                            {{wisata.paging.page}}
+                            dari
+                            {{wisata.paging.totalPages}}
+                        </a>
+                    </li>
+                    <li ng-click="wisata.nextPage()" class="waves-effect">
+                        <a>
+                            <i class="material-icons">chevron_right</i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
