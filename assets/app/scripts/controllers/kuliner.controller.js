@@ -29,8 +29,7 @@
 
     function ambilKuliner() {
       KulinerService.ambilKuliner(kuliner.paging.page, kuliner.paging.jumlah).success(function(data) {
-        kuliner.dataDaerahAceh = data.data_kuliner;
-
+        kuliner.dataKuliner = data.data_kuliner;
         kuliner.paging.totalPages = data.jumlah_halaman;
       });
     }
