@@ -31,7 +31,7 @@
                         <a class="white-text" ui-sref="kuliner">Kuliner</a>
                     </li>
                     <li>
-                        <a class="white-text" href="#">Wisata</a>
+                        <a class="white-text" ui-sref="wisata">Wisata</a>
                     </li>
                     <li>
                         <a class="white-text" href="#">Tarian</a>
@@ -46,7 +46,7 @@
                         <a ui-sref="kuliner">Kuliner</a>
                     </li>
                     <li>
-                        <a href="#">Wisata</a>
+                        <a ui-sref="wisata">Wisata</a>
                     </li>
                     <li>
                         <a href="#">Tarian</a>
