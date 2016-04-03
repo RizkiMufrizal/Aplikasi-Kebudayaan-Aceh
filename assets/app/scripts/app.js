@@ -55,6 +55,23 @@
               ]);
             }]
           }
+        })
+        .state('wisata', {
+          url: '/wisata',
+          views: {
+            'lazyLoadView': {
+              template: '<ng-wisata></ng-wisata>'
+            }
+          },
+          resolve: {
+            loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+              return $ocLazyLoad.load([
+                'assets/app/scripts/services/wisata.service.js',
+                'assets/app/scripts/directives/ngWisata.js',
+                'assets/app/scripts/controllers/wisata.controller.js'
+              ]);
+            }]
+          }
         });
     })
     .run(['$rootScope', '$state', 'cfpLoadingBar', function($rootScope, $state, cfpLoadingBar) {
