@@ -23,12 +23,12 @@
     <body>
         <nav class="green z-depth-2" role="navigation">
             <div class="nav-wrapper container">
-                <a id="logo-container" href="#" class="brand-logo">
-                    <img  style="width: 150px; width: 150px" src="<?php echo base_url(); ?>assets/img/logo.png" />
+                <a id="logo-container" ui-sref="home" class="brand-logo">
+                    <img style="width: 150px; width: 150px" src="<?php echo base_url(); ?>assets/img/logo.png" />
                 </a>
                 <ul class="right hide-on-med-and-down">
                     <li>
-                        <a class="white-text" href="#">Kuliner</a>
+                        <a class="white-text" ui-sref="kuliner">Kuliner</a>
                     </li>
                     <li>
                         <a class="white-text" href="#">Wisata</a>
@@ -43,7 +43,7 @@
 
                 <ul id="nav-mobile" class="side-nav">
                     <li>
-                        <a href="#">Kuliner</a>
+                        <a ui-sref="kuliner">Kuliner</a>
                     </li>
                     <li>
                         <a href="#">Wisata</a>
