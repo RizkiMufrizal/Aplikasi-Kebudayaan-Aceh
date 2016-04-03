@@ -90,6 +90,24 @@
               ]);
             }]
           }
+        })
+        .state('tarian', {
+          url: '/tarian',
+          views: {
+            'lazyLoadView': {
+              template: '<ng-tarian></ng-tarian>'
+            }
+          },
+          resolve: {
+            loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+              return $ocLazyLoad.load([
+                'assets/app/scripts/services/tarian.service.js',
+                'assets/app/scripts/directives/ngVideo.js',
+                'assets/app/scripts/directives/ngTarian.js',
+                'assets/app/scripts/controllers/tarian.controller.js'
+              ]);
+            }]
+          }
         });
     })
     .run(['$rootScope', '$state', 'cfpLoadingBar', function($rootScope, $state, cfpLoadingBar) {
