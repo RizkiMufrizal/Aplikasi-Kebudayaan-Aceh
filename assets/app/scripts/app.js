@@ -72,6 +72,24 @@
               ]);
             }]
           }
+        })
+        .state('musik', {
+          url: '/musik',
+          views: {
+            'lazyLoadView': {
+              template: '<ng-musik></ng-musik>'
+            }
+          },
+          resolve: {
+            loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+              return $ocLazyLoad.load([
+                'assets/app/scripts/services/musik.service.js',
+                'assets/app/scripts/directives/ngAudio.js',
+                'assets/app/scripts/directives/ngMusik.js',
+                'assets/app/scripts/controllers/musik.controller.js'
+              ]);
+            }]
+          }
         });
     })
     .run(['$rootScope', '$state', 'cfpLoadingBar', function($rootScope, $state, cfpLoadingBar) {
