@@ -34,7 +34,7 @@
                         <a class="white-text" ui-sref="wisata">Wisata</a>
                     </li>
                     <li>
-                        <a class="white-text" href="#">Tarian</a>
+                        <a class="white-text" ui-sref="tarian">Tarian</a>
                     </li>
                     <li>
                         <a class="white-text" ui-sref="musik">Musik</a>
@@ -49,7 +49,7 @@
                         <a ui-sref="wisata">Wisata</a>
                     </li>
                     <li>
-                        <a href="#">Tarian</a>
+                        <a ui-sref="tarian">Tarian</a>
                     </li>
                     <li>
                         <a ui-sref="musik">Musik</a>
