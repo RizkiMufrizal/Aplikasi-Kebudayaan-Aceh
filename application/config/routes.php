@@ -109,5 +109,12 @@ $route['admin/login']['POST'] = 'admin/UserController/prosesLogin';
 $route['admin/logout']['GET'] = 'admin/UserController/prosesLogout';
 //end login view
 
+//rest api
+$route['api/kuliner']['GET'] = 'api/KulinerAcehRestController/kuliner';
+$route['api/musik']['GET'] = 'api/MusikAcehRestController/musik';
+$route['api/tarian']['GET'] = 'api/TarianAcehRestController/tarian';
+$route['api/wisata']['GET'] = 'api/WisataAcehRestController/wisata';
+//end rest api
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
