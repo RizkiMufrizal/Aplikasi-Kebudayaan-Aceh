@@ -34,7 +34,7 @@
           resolve: {
             loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
               return $ocLazyLoad.load([
-                'assets/app/scripts/directives/NgHome.js'
+                'assets/app/scripts/directives/ngHome.js'
               ]);
             }]
           }
