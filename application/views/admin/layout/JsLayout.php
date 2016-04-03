@@ -9,3 +9,11 @@
   
 -->
 <script src="<?php echo base_url(); ?>assets/js/bundle.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#kuliner').DataTable();
+        $('#musik').DataTable();
+        $('#tarian').DataTable();
+        $('#wisata').DataTable();
+    });
+</script>

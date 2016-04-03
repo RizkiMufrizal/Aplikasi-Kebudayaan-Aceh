@@ -67,7 +67,7 @@
                             <?php } else { ?>
                                 <h2>Daftar Wisata Aceh</h2>
                                 <div class="table-responsive">
-                                    <table class="table table-bordered table-hover table-striped">
+                                    <table id="wisata" class="table table-bordered table-hover table-striped">
                                         <thead>
                                             <tr>
                                                 <th>Id Wisata Aceh</th>

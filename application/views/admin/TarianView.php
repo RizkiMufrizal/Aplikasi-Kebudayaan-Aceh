@@ -67,7 +67,7 @@
                             <?php } else { ?>
                                 <h2>Daftar Tarian Aceh</h2>
                                 <div class="table-responsive">
-                                    <table class="table table-bordered table-hover table-striped">
+                                    <table id="tarian" class="table table-bordered table-hover table-striped">
                                         <thead>
                                             <tr>
                                                 <th>Id Tarian Aceh</th>

@@ -66,7 +66,7 @@
                             <?php } else { ?>
                                 <h2>Daftar Musik Aceh</h2>
                                 <div class="table-responsive">
-                                    <table class="table table-bordered table-hover table-striped">
+                                    <table id="musik" class="table table-bordered table-hover table-striped">
                                         <thead>
                                             <tr>
                                                 <th>Id Musik Aceh</th>
