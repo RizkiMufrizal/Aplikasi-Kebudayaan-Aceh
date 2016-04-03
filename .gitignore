@@ -94,3 +94,11 @@ sftp-config.json
 /assets/js/bundle.min.js
 /assets/fonts/glyphicons-halflings-regular.woff
 /uploads/
+/assets/css/bundle-user.min.css
+/assets/js/bundle-user.min.js
+/assets/fonts/roboto/Roboto-Regular.woff
+/assets/fonts/roboto/Roboto-Light.woff
+/assets/fonts/roboto/Roboto-Regular.woff2
+/assets/fonts/roboto/Roboto-Light.woff2
+/assets/fonts/roboto/Roboto-Light.ttf
+/assets/fonts/roboto/Roboto-Regular.ttf
