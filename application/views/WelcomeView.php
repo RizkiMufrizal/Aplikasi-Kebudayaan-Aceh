@@ -37,7 +37,7 @@
                         <a class="white-text" href="#">Tarian</a>
                     </li>
                     <li>
-                        <a class="white-text" href="#">Musik</a>
+                        <a class="white-text" ui-sref="musik">Musik</a>
                     </li>
                 </ul>
 
@@ -52,7 +52,7 @@
                         <a href="#">Tarian</a>
                     </li>
                     <li>
-                        <a href="#">Musik</a>
+                        <a ui-sref="musik">Musik</a>
                     </li>
                 </ul>
                 <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
