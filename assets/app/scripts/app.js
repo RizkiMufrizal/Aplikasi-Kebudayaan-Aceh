@@ -38,9 +38,30 @@
               ]);
             }]
           }
+        })
+        .state('kuliner', {
+          url: '/kuliner',
+          views: {
+            'lazyLoadView': {
+              template: '<ng-kuliner></ng-kuliner>'
+            }
+          },
+          resolve: {
+            loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+              return $ocLazyLoad.load([
+                'assets/app/scripts/services/kuliner.service.js',
+                'assets/app/scripts/directives/ngKuliner.js',
+                'assets/app/scripts/controllers/kuliner.controller.js'
+              ]);
+            }]
+          }
         });
     })
     .run(['$rootScope', '$state', 'cfpLoadingBar', function($rootScope, $state, cfpLoadingBar) {
+
+      $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
+        cfpLoadingBar.start();
+      });
 
       $rootScope.$on('$stateChangeSuccess', function() {
         cfpLoadingBar.complete();
