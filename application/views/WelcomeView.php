@@ -7,9 +7,9 @@
  Encoding UTF-8
  Project Aplikasi-Kebudayaan-Aceh
  Package Expression package is undefined on line 9, column 12 in Templates/Scripting/EmptyPHPWebPage.php.
-  
+
 -->
-<html lang="en">
+<html lang="en" ng-app="Aplikasi-Kebudayaan-Aceh">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
@@ -59,46 +59,7 @@
             </div>
         </nav>
 
-        <div id="index-banner" class="parallax-container">
-            <div class="section no-pad-bot">
-                <div class="container">
-                    <br><br>
-                    <h1 class="header center text-lighten-2">Selamat Datang</h1>
-                    <div class="row center">
-                        <h4 class="header col s12 light">
-                            Aplikasi Kebudayaan Aceh
-                        </h4>
-                    </div>
-                </div>
-            </div>
-            <div class="parallax"><img src="<?php echo base_url(); ?>assets/img/MesjidRaya.jpg" alt="Unsplashed background img 1"></div>
-        </div>
-
-
-        <div class="container">
-            <div class="section">
-
-                <!--   Icon Section   -->
-                <div class="row">
-                    <div class="col s12 center">
-                        <div class="icon-block">
-                            <h2 class="center brown-text"><i class="material-icons">group</i></h2>
-                            <h5 class="center">About Project</h5>
-
-                            <p class="light">
-                                Aplikasi ini dibuat dalam rangka membudidayakan kebudayaan aceh
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-
-        <div class="parallax-container valign-wrapper">
-            <div class="parallax"><img src="<?php echo base_url(); ?>assets/img/MuseumTsunamiAceh.jpg" alt="Unsplashed background img 2"></div>
-        </div>
+        <div ui-view="lazyLoadView"></div>
 
         <footer class="page-footer teal">
             <div class="container">
@@ -128,7 +89,7 @@
 
         <!--  Scripts-->
         <script src="<?php echo base_url(); ?>assets/js/bundle-user.min.js"></script>
-        <script src="<?php echo base_url(); ?>assets/js/init.js"></script>
+        <script src="<?php echo base_url(); ?>assets/app/scripts/App.js"></script>
 
     </body>
 </html>
