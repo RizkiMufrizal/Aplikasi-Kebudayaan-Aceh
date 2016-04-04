@@ -33,7 +33,7 @@ gulp.task('minify-js-user', function() {
   gulp
     .src([
       './bower_components/jquery/dist/jquery.min.js',
-      './bower_components/materialize.js',
+      './bower_components/Materialize/dist/js/materialize.min.js',
       './bower_components/angular/angular.min.js',
       './bower_components/angular-animate/angular-animate.min.js',
       './bower_components/angular-loading-bar/build/loading-bar.min.js',
@@ -47,7 +47,7 @@ gulp.task('minify-js-user', function() {
 
 gulp.task('minify-css-user', function() {
   gulp.src([
-    './bower_components/materialize.css',
+    './bower_components/Materialize/dist/css/materialize.min.css',
     './bower_components/angular-loading-bar/build/loading-bar.min.css'
   ])
     .pipe(gulpConcat('bundle-user.min.css'))
@@ -80,12 +80,12 @@ gulp.task('fonts', function() {
 
 gulp.task('fonts-user', function() {
   gulp.src([
-    './bower_components/fonts/roboto/Roboto-Regular.woff2',
-    './bower_components/fonts/roboto/Roboto-Regular.woff',
-    './bower_components/fonts/roboto/Roboto-Regular.ttf',
-    './bower_components/fonts/roboto/Roboto-Light.woff2',
-    './bower_components/fonts/roboto/Roboto-Light.woff',
-    './bower_components/fonts/roboto/Roboto-Light.ttf'
+    './bower_components/Materialize/dist/fonts/roboto/Roboto-Regular.woff2',
+    './bower_components/Materialize/dist/fonts/roboto/Roboto-Regular.woff',
+    './bower_components/Materialize/dist/fonts/roboto/Roboto-Regular.ttf',
+    './bower_components/Materialize/dist/fonts/roboto/Roboto-Light.woff2',
+    './bower_components/Materialize/dist/fonts/roboto/Roboto-Light.woff',
+    './bower_components/Materialize/dist/fonts/roboto/Roboto-Light.ttf'
   ])
     .pipe(gulp.dest('./assets/fonts/roboto/'));
 });
