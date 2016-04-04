@@ -27,6 +27,7 @@
     "jquery": "^2.2.2",
     "datatables.net": "^1.10.11",
     "datatables.net-bs": "^1.10.11",
-    "bootstrap": "^3.3.6"
+    "bootstrap": "^3.3.6",
+    "Materialize": "materialize#^0.97.6"
   }
 }
